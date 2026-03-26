@@ -60,3 +60,38 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalSlides = document.querySelectorAll('.slide').length;
     document.getElementById('total-slides').textContent = totalSlides;
 });
+
+/* ============================================
+   AUDIO: PREVENT SIMULTANEOUS PLAYBACK
+   Automatically pauses any other clip when
+   a new one starts playing
+   ============================================ */
+
+document.addEventListener('play', function(e) {
+    const audios = document.getElementsByTagName('audio');
+    for (let i = 0; i < audios.length; i++) {
+        if (audios[i] !== e.target) {
+            audios[i].pause();
+        }
+    }
+}, true);
+
+/* ============================================
+   BACK TO TOP BUTTON
+   Shows the button after scrolling 300px,
+   hides it again near the top
+   ============================================ */
+
+const backToTopBtn = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+        backToTopBtn.style.display = 'block';
+    } else {
+        backToTopBtn.style.display = 'none';
+    }
+});
+
+backToTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});

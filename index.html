@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Title Here</title>
+
+    <!-- ============================================
+         GOOGLE FONTS
+         - To change fonts, visit fonts.google.com
+         - Replace the font names in the URL and in style.css
+         ============================================ -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700;900&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================
+         NAVIGATION: Fixed header with mobile toggle
+         - Change the nav links to match your story sections
+         - The hamburger menu appears on screens under 768px
+         ============================================ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Story Title</div>
+            <button class="hamburger" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#hero">Top</a></li>
+                <li><a href="#photos">Photos</a></li>
+                <li><a href="#audio">Audio</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#footer">Credits</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION: Full-screen image + headline
+         - Change the background image in style.css
+         - Look for ".hero" in the CSS file
+         - Edit the headline and deck text below
+         ============================================ -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Your Headline Goes Here</h1>
+            <p class="deck">Your deck (summary) goes here. This should be a short sentence that adds some context to the headline.</p>
+            <p class="byline">By Your Name | Month Day, Year</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         STORY TEXT SECTION
+         - Write your full story here
+         - Use multiple <p> tags for multiple paragraphs
+         ============================================ -->
+    <section class="section story-text">
+        <p>Write your introduction paragraph here. This is where you set up your story — who is it about, what happened, and why does it matter?</p>
+        <p>Add as many paragraphs as you need. Each paragraph should be wrapped in its own set of &lt;p&gt; and &lt;/p&gt; tags.</p>
+        <p>You can also add a pull quote by wrapping a sentence in &lt;blockquote&gt; tags to make it stand out visually.</p>
+        <blockquote>This is a pull quote. Paste a compelling sentence from your story here.</blockquote>
+        <p>Continue your story here after the pull quote. Use these text blocks where appropriate throughout your story.</p>
+    </section>
+
+    <!-- ============================================
+         PARALLAX DIVIDER
+         - Change the background image in style.css
+         - Look for ".parallax-1"
+         ============================================ -->
+    <div class="parallax-divider parallax-1"></div>
+
+    <!-- ============================================
+         PHOTOS SECTION: Slideshow gallery
+         - Add/remove <div class="slide"> blocks for each photo
+         - Update the img src and alt text for each photo
+         - The caption text appears below each photo
+         ============================================ -->
+    <section id="photos" class="section">
+        <h2>Photos</h2>
+        <p class="section-intro">Write 1-2 sentences here introducing your photo gallery. What do these images show, and why did you take them?</p>
+        <div class="slideshow">
+            <div class="slide active">
+                <img src="img/1.jpg" alt="Photo caption here">
+                <p class="caption">Photo caption here</p>
+            </div>
+            <div class="slide">
+                <img src="img/2.jpg" alt="Photo caption here">
+                <p class="caption">Photo caption here</p>
+            </div>
+            <div class="slide">
+                <img src="img/3.jpg" alt="Photo caption here">
+                <p class="caption">Photo caption here</p>
+            </div>
+        </div>
+        <div class="slide-controls">
+            <button onclick="changeSlide(-1)">&#8592; Prev</button>
+            <span class="slide-counter">
+                <span id="current-slide">1</span> / <span id="total-slides">3</span>
+            </span>
+            <button onclick="changeSlide(1)">Next &#8594;</button>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PARALLAX DIVIDER
+         - Change the background image in style.css
+         - Look for ".parallax-2"
+         ============================================ -->
+    <div class="parallax-divider parallax-2"></div>
+
+    <!-- ============================================
+         AUDIO SECTION: Clickable speaker images
+         - For each speaker you need TWO image files:
+             img/rollover/1.gif  (animated, shown by default)
+             img/rollover/1.jpg  (still, shown on hover)
+         - Update the audio src to your mp3 files
+         - Update the alt text and label to the speaker's name
+         - Click image to play | Double-click to pause
+         - Only one clip will play at a time
+         ============================================ -->
+    <section id="audio" class="section alt-bg">
+        <h2>Audio</h2>
+        <p class="section-intro">Write 1-2 sentences here introducing your audio clips. Who did you interview, and what did they talk about?</p>
+
+        <!-- Hidden audio elements — triggered by clicking the images below -->
+        <audio id="audio_1"><source src="audio/1.mp3" type="audio/mpeg"></audio>
+        <audio id="audio_2"><source src="audio/2.mp3" type="audio/mpeg"></audio>
+        <audio id="audio_3"><source src="audio/3.mp3" type="audio/mpeg"></audio>
+
+        <div class="audio-board">
+            <div class="audio-speaker">
+                <img src="img/rollover/1.gif" class="rollover" alt="Speaker 1 name"
+                    onmouseover="this.src='img/rollover/1.jpg'"
+                    onmouseout="this.src='img/rollover/1.gif'"
+                    onclick="document.getElementById('audio_1').play(); return false;"
+                    ondblclick="document.getElementById('audio_1').pause(); return false;">
+                <p class="audio-label">Speaker Name</p>
+            </div>
+            <div class="audio-speaker">
+                <img src="img/rollover/2.gif" class="rollover" alt="Speaker 2 name"
+                    onmouseover="this.src='img/rollover/2.jpg'"
+                    onmouseout="this.src='img/rollover/2.gif'"
+                    onclick="document.getElementById('audio_2').play(); return false;"
+                    ondblclick="document.getElementById('audio_2').pause(); return false;">
+                <p class="audio-label">Speaker Name</p>
+            </div>
+            <div class="audio-speaker">
+                <img src="img/rollover/3.gif" class="rollover" alt="Speaker 3 name"
+                    onmouseover="this.src='img/rollover/3.jpg'"
+                    onmouseout="this.src='img/rollover/3.gif'"
+                    onclick="document.getElementById('audio_3').play(); return false;"
+                    ondblclick="document.getElementById('audio_3').pause(); return false;">
+                <p class="audio-label">Speaker Name</p>
+            </div>
+        </div>
+        <p class="audio-instructions">Click an image to play &nbsp;|&nbsp; Double-click to pause</p>
+    </section>
+
+    <!-- ============================================
+         PARALLAX DIVIDER
+         - Change the background image in style.css
+         - Look for ".parallax-3"
+         ============================================ -->
+    <div class="parallax-divider parallax-3"></div>
+
+    <!-- ============================================
+         VIDEO SECTION: Embedded video player
+         - Update src to your video file path
+         - Update poster to a thumbnail image
+         ============================================ -->
+    <section id="video" class="section">
+        <h2>Video</h2>
+        <p class="section-intro">Write 1-2 sentences here introducing your video. What does it show, and why is it important to your story?</p>
+        <div class="video-wrapper">
+            <video controls poster="img/poster.jpg">
+                <source src="video/video.mp4" type="video/mp4">
+                Your browser does not support video.
+            </video>
+            <p class="caption">Video caption here</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         INFOGRAPHIC SECTION (OPTIONAL)
+         - To use: delete the comment tags surrounding the section
+           below (the standalone lines that read: less-than !dash-dash
+           and dash-dash greater-than)
+         - Paste your embed code (Datawrapper, Flourish,
+           Infogram, etc.) where indicated
+         - To skip: leave this section as-is
+         ============================================ -->
+
+    <!--
+    <section id="infographic" class="section alt-bg">
+        <h2>By the Numbers</h2>
+        <p class="section-intro">Write 1-2 sentences here introducing your data visualization.</p>
+        <div class="infographic-wrapper">
+
+            PASTE YOUR EMBED CODE HERE
+
+        </div>
+    </section>
+    -->
+
+    <!-- ============================================
+         FOOTER: Credits and contact info
+         - Edit your name, date, and email below
+         ============================================ -->
+    <footer id="footer">
+        <p>Story Title | By Your Name | Month Year</p>
+        <p><a href="mailto:youremail@email.com">youremail@email.com</a></p>
+    </footer>
+
+    <!-- ============================================
+         BACK TO TOP BUTTON
+         - Appears automatically after scrolling down
+         - No changes needed here
+         ============================================ -->
+    <button id="back-to-top" title="Back to top">&#8593; Top</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
